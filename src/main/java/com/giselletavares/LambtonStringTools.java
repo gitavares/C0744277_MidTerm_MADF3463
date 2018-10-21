@@ -46,11 +46,13 @@ public class LambtonStringTools {
     }
 
     String initials(String s) {
-        String initials = "";
         String treated = s.trim();
+        String[] resultSplit = treated.split(" ");
+        String initials1 = "";
+        String initials2 = "";
+        String initials3 = "";
+
         int countSpaces = 0;
-        int iValue = 0;
-        System.out.println(treated);
 
         for (int i = 0; i < treated.length(); i++) {
             if(treated.substring(i, i+1).contains(" ")){
@@ -59,39 +61,17 @@ public class LambtonStringTools {
         }
 
         if(countSpaces == 2) {
-            initials += treated.substring(0,1).toUpperCase();
-            initials += ". ";
-
-            for (int i = 2; i < treated.length(); i++) {
-                if(treated.substring(i, i+1).contains(" ")){
-                    initials += treated.substring(i+1, i+2).toUpperCase();
-                    initials += ". ";
-//                    initials += treated.substring(i+1, j+2).toUpperCase();
-//                    initials += treated.substring(j+i+2).toLowerCase();
-//                    for (int j = 6; j < treated.length(); j++) {
-////                        System.out.println(treated.substring(j, j+1));
-//                        if(treated.substring(j+i, j+i+1).contains(" ")){
-//                            initials += treated.substring(j+i+1, j+i+2).toUpperCase();
-//                            initials += treated.substring(j+i+2).toLowerCase();
-//                        }
-//                    }
-//                    if(treated.substring(i+7, i+8).contains(" ")){
-//                        i++;
-//                    }
-//                    initials += treated.substring(i, i+1).toUpperCase();
-//                    initials += treated.substring(i+1).toLowerCase();
-//
-//                    break;
-                }
-
-
-            }
-
+            initials1 = resultSplit[0].substring(0,1).toUpperCase();
+            initials1 += ". ";
+            initials2 = resultSplit[1].substring(0,1).toUpperCase();
+            initials2 += ". ";
+            initials3 = resultSplit[2].substring(0,1).toUpperCase();
+            initials3 += resultSplit[2].substring(1).toLowerCase();
         } else {
             return null;
         }
 
-        return initials;
+        return initials1 + initials2 + initials3;
     }
 
     Character mostFrequent(String s) {
@@ -107,15 +87,23 @@ public class LambtonStringTools {
             }
         }
 
+
+
         return mostFrequentChar;
     }
 
     String replaceSubString(String s1, String s2, String s3) {
-//        String replacedSubString = "";
+        String[] resultSplit = s1.split(" ");
+        String finalSentence = "";
 
-//        s1.replace(s2, s3);
+        for(String word: resultSplit) {
+            if(word.equals(s2)) {
+                word = s3;
+            }
+            finalSentence += word + " ";
+        }
 
-        return s1.replace(s2, s3);
+        return finalSentence;
     }
 
 

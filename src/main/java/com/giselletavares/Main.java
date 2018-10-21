@@ -17,13 +17,19 @@ public class Main {
         System.out.println("binaryToDecimal: " + str.binaryToDecimal("100001.1"));
         System.out.println("binaryToDecimal: " + str.binaryToDecimal(""));
 
+        // initials
+        System.out.println("Initials: " + str.initials(" Giselle Cristina Tavares "));
+        System.out.println("Initials: " + str.initials("James tiBeriUs kiRK"));
+        System.out.println("Initials: " + str.initials("jean luc picard"));
+        System.out.println("Initials: " + str.initials("AaroN LANGille"));
+
+
         // replaceSubString
         System.out.println("replaceSubString: " + str.replaceSubString("the dog jumped over the fence", "the", "that"));
 
 
 
-        // initials
-        System.out.println("Initials: " + str.initials(" Giselle Cristina Tavares "));
+
 
         // mostFrequent
         System.out.println("Most Frequent: " + str.mostFrequent("Some sentence"));
