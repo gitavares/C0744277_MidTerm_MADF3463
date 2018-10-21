@@ -5,6 +5,10 @@ import java.util.*;
 public class LambtonStringTools {
 
     String reverse(String s) {
+        if(s.isEmpty()){
+            return null;
+        }
+
         String reversedString = "";
 
         for (int i = s.length()-1; i >= 0; i--) {
@@ -45,12 +49,17 @@ public class LambtonStringTools {
         return convertedToDecimal;
     }
 
+
     String initials(String s) {
+        if(s.isEmpty()) {
+            return null;
+        }
+
         String treated = s.trim();
         String[] resultSplit = treated.split(" ");
-        String initials1 = "";
-        String initials2 = "";
-        String initials3 = "";
+        String initials1;
+        String initials2;
+        String initials3;
 
         int countSpaces = 0;
 
@@ -75,24 +84,40 @@ public class LambtonStringTools {
     }
 
     Character mostFrequent(String s) {
-        Character mostFrequentChar = null;
-        Map<String, Integer> countChar = new HashMap<>();
-        int countCharNumber = 0;
-
-        for (int i = 0; i < s.length(); i++) {
-            if(!countChar.containsKey(s.substring(i, i+1))) {
-                countChar.put(s.substring(i, i+1), 1);
-            } else {
-                countChar.replace(s.substring(i, i+1), +1);
-            }
+        if(s.isEmpty()){
+            return null;
         }
 
+        String[] resultSplit = s.toLowerCase().split("");
+        int countCharNumber = 0;
+        int tempCount = 0;
+        Character mostFrequentChar = null;
+        Character tempMostFrequentChar = null;
 
+
+        for (int i = 0; i < resultSplit.length; i++) {
+            for (int j = 0; j < resultSplit.length; j++) {
+                tempMostFrequentChar = resultSplit[i].charAt(0);
+                if(tempMostFrequentChar.equals(resultSplit[j].charAt(0))){
+                    tempCount += 1;
+                }
+            }
+            if(tempCount >= countCharNumber) {
+                countCharNumber = tempCount;
+                mostFrequentChar = tempMostFrequentChar;
+            }
+            tempCount = 0;
+        }
 
         return mostFrequentChar;
     }
 
+
     String replaceSubString(String s1, String s2, String s3) {
+        if(s1.isEmpty()) {
+            return null;
+        }
+
         String[] resultSplit = s1.split(" ");
         String finalSentence = "";
 
@@ -105,7 +130,5 @@ public class LambtonStringTools {
 
         return finalSentence;
     }
-
-
 
 }
